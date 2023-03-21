@@ -21,7 +21,8 @@ class Javatta {
         this.template = {
             container: document.createElement("div"),
             label: document.createElement("div"),
-            input: element
+            input: element,
+            error: document.createElement("div")
         }
 
         this.template.container.classList.add("javatta");
@@ -31,6 +32,9 @@ class Javatta {
 
         this.template.input.replaceWith(this.template.container);
         this.template.container.appendChild(this.element);
+
+        this.template.error.classList.add("javatta-error");
+        this.template.container.appendChild(this.template.error);
 
         this.element.addEventListener("change", (event) => {
             this.update().checkFilesNumber().checkTotalSize().render();
@@ -195,6 +199,15 @@ class Javatta {
     }
 
     error(message){
-        alert(message);
+        let text = document.createTextNode(message);
+        this.template.error.appendChild(text);
+        this.template.error.classList.add("show");
+
+        setTimeout(() => {
+            while (this.template.error.firstChild) {
+                this.template.error.removeChild(this.template.error.firstChild);
+                this.template.error.classList.remove("show");
+            }
+        }, 4000);
     }
 }
