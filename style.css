@@ -1,0 +1,20 @@
+body, html{
+    background: #1d1d1d;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+.form-container{
+    max-width: 640px;
+    margin:0 auto;
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+.form-container h2{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.form-container h3{
+    margin-top: 1px;
+}
+
